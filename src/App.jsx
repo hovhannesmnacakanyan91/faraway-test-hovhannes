@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { globalOp } from './store/global';
 
-import People from './pages/people';
+import People from './pages/People_';
 
 const App = () => {
   const dispatch = useDispatch();
