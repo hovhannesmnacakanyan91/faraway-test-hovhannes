@@ -6,7 +6,7 @@ export const globalSlice = createSlice({
   initialState: initialGlobalState,
   reducers: {
     getPeople: (state, action) => {
-      state.people = action.payload;
+      state.people = action.payload.results;
     },
   },
 });

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { Provider } from 'react-redux';
-import { store } from './store/configureStore';
+import { useDispatch } from 'react-redux';
+import { globalOp } from './store/global';
 
-import People from './pages/people/People';
+import People from './pages/people';
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <People />
-    </Provider>
-  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(globalOp.getPeople());
+  }, [dispatch]);
+
+  return <People />;
 };
 
 export default App;

@@ -6,12 +6,12 @@ const getPeople = () => {
 
   return async dispatch => {
     try {
-      const { results } = await fetch({
+      const { data } = await fetch({
         url: `https://swapi.dev/api/people`,
         method: 'GET',
       });
 
-      dispatch(getPeople(results));
+      dispatch(getPeople(data));
     } catch (error) {
       console.log(error);
     }
