@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
-import { globalOp } from './store/global';
-
-import People from './pages/People_';
+import People from './pages/People';
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(globalOp.getPeople());
-  }, [dispatch]);
-
-  return <People />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path='/' element={<Home />} /> */}
+        <Route path='/people' element={<People />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;

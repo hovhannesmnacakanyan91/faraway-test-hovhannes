@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { globalOp, globalSel } from '../../store/global';
 
 import { Grid, Button, Box, CircularProgress, Typography } from '@mui/material';
-import PersonCard from './components/PersonCard';
+import Card from '../../components/Card';
 
 const People = () => {
   const dispatch = useDispatch();
   const { results, next, previous, count } = useSelector(globalSel.peopleSelector);
+
+  useEffect(() => {
+    dispatch(globalOp.getPeople());
+  }, [dispatch]);
 
   const handleClick = url => dispatch(globalOp.getPeople(url));
 
@@ -16,7 +20,7 @@ const People = () => {
     <Box display='flex' alignItems='center' flexDirection='column'>
       <Grid container spacing={3} mb={2} p={2}>
         {results.map(person => {
-          return <PersonCard person={person} key={person.name} />;
+          return <Card data={person} key={person.name} />;
         })}
       </Grid>
       <Box display='flex' gap={3} alignItems='center'>
