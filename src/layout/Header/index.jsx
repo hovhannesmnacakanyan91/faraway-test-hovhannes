@@ -36,16 +36,8 @@ const Header = () => {
       </Link>
       <Box display='flex' gap={3} ml={3}>
         {linkList.map(link => (
-          <Typography color={text[600]} variant='body1' key={link.name} fontWeight='bold'>
-            <NavLink
-              style={({ isActive }) => {
-                return {
-                  color: isActive ? '#ffffff' : '',
-                };
-              }}
-              to={`/${link.name}`}>
-              {link.name.toUpperCase()}
-            </NavLink>
+          <Typography color={text[400]} variant='body1' key={link.name} fontWeight='bold'>
+            <NavLink to={`/${link.name}`}>{link.name.toUpperCase()}</NavLink>
           </Typography>
         ))}
       </Box>

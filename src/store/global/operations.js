@@ -5,6 +5,7 @@ const getPeople = (url = `https://swapi.dev/api/people`) => {
   const { getPeople } = globalSlice.actions;
 
   return async dispatch => {
+    dispatch(getPeople({}));
     try {
       const { data } = await fetch({
         url,

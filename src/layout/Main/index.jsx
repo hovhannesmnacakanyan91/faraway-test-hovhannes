@@ -8,7 +8,7 @@ const Main = () => {
     <Box
       component='main'
       minHeight='calc(100vh - 120px)'
-      p={3}
+      p={5}
       sx={{
         background:
           'linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%) ,url(https://wallpaperaccess.com/full/695130.jpg)',

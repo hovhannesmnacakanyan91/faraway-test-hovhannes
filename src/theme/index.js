@@ -24,6 +24,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          color: palette.text[400],
+        },
+      },
+    },
   },
 });
 
