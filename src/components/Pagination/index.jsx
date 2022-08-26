@@ -11,7 +11,7 @@ const Pagination = ({ count }) => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
-  const handleChange = () => dispatch(globalOp.getPeople(`https://swapi.dev/api/people?page=${page}`));
+  const handleChange = () => dispatch(globalOp.getPeople(`https://swapi.dev/api/people?page=${page ? +page : 1}`));
 
   return (
     <MUIPagination
