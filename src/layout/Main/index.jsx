@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <Box
       component='main'
-      height='calc(100vh - 120px)'
+      minHeight='calc(100vh - 120px)'
       p={3}
       sx={{
         background:

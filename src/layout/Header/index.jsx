@@ -12,9 +12,6 @@ const Header = () => {
     {
       name: 'people',
     },
-    {
-      name: 'films',
-    },
   ];
 
   return (

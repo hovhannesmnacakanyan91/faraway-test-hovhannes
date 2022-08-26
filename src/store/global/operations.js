@@ -20,8 +20,8 @@ const getPeople = (url = `https://swapi.dev/api/people`) => {
 
 const getPerson = id => {
   const { getPerson } = globalSlice.actions;
-
   return async dispatch => {
+    dispatch(getPerson({}));
     try {
       const { data } = await fetch({
         url: `https://swapi.dev/api/people/${id}`,

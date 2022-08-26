@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { globalOp, globalSel } from '../../store/global';
@@ -9,6 +9,7 @@ import Card from '../../components/Card';
 const People = () => {
   const dispatch = useDispatch();
   const { results, next, previous, count } = useSelector(globalSel.peopleSelector);
+  const [itemsCount, setItemCounts] = useState(10);
 
   const handleClick = url => dispatch(globalOp.getPeople(url));
 
@@ -21,7 +22,10 @@ const People = () => {
       </Grid>
       <Box display='flex' gap={3} alignItems='center'>
         <Button
-          onClick={() => handleClick(previous)}
+          onClick={() => {
+            handleClick(previous);
+            setItemCounts(prev => prev - 10);
+          }}
           disabled={!previous}
           variant='contained'
           size='large'
@@ -29,15 +33,23 @@ const People = () => {
           Previous
         </Button>
         <Typography variant='h6'>
-          {results.length}/{count}
+          {itemsCount}/{count}
         </Typography>
-        <Button onClick={() => handleClick(next)} disabled={!next} variant='contained' size='large' sx={{ width: 150 }}>
+        <Button
+          onClick={() => {
+            handleClick(next);
+            setItemCounts(prev => prev + 10);
+          }}
+          disabled={!next}
+          variant='contained'
+          size='large'
+          sx={{ width: 150 }}>
           Next
         </Button>
       </Box>
     </Box>
   ) : (
-    <Box position='absolute' height={1} width={1} display='flex' alignItems='center' justifyContent='center'>
+    <Box height={1} width={1} display='flex' alignItems='center' justifyContent='center'>
       <CircularProgress size={100} />
     </Box>
   );
