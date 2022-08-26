@@ -8,5 +8,8 @@ export const globalSlice = createSlice({
     getPeople: (state, action) => {
       state.people = action.payload;
     },
+    getPerson: (state, action) => {
+      state.person = action.payload;
+    },
   },
 });

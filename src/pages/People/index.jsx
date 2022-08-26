@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { globalOp, globalSel } from '../../store/global';
@@ -10,17 +10,13 @@ const People = () => {
   const dispatch = useDispatch();
   const { results, next, previous, count } = useSelector(globalSel.peopleSelector);
 
-  useEffect(() => {
-    dispatch(globalOp.getPeople());
-  }, [dispatch]);
-
   const handleClick = url => dispatch(globalOp.getPeople(url));
 
   return results && results.length ? (
     <Box display='flex' alignItems='center' flexDirection='column'>
-      <Grid container spacing={3} mb={2} p={2}>
+      <Grid container spacing={3} mb={3}>
         {results.map(person => {
-          return <Card data={person} key={person.name} />;
+          return <Card data={person} type='people' key={person.name} />;
         })}
       </Grid>
       <Box display='flex' gap={3} alignItems='center'>

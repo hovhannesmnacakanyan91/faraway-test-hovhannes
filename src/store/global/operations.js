@@ -18,6 +18,24 @@ const getPeople = (url = `https://swapi.dev/api/people`) => {
   };
 };
 
+const getPerson = id => {
+  const { getPerson } = globalSlice.actions;
+
+  return async dispatch => {
+    try {
+      const { data } = await fetch({
+        url: `https://swapi.dev/api/people/${id}`,
+        method: 'GET',
+      });
+
+      dispatch(getPerson(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
 export const globalOp = {
   getPeople,
+  getPerson,
 };

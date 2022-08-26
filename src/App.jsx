@@ -1,16 +1,32 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-import People from './pages/People';
+import { useDispatch } from 'react-redux';
+import { globalOp } from './store/global';
+
+import { ThemeProvider } from '@mui/material';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Main from './layout/Main';
+
+import theme from './theme';
+import './globalStyles.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(globalOp.getPeople());
+  }, [dispatch]);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* <Route path='/' element={<Home />} /> */}
-        <Route path='/people' element={<People />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header />
+        <Main />
+        <Footer />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
