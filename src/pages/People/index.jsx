@@ -8,16 +8,16 @@ import Card from '../../components/Card';
 import Pagination from '../../components/Pagination';
 
 const People = () => {
-  const { results, count } = useSelector(globalSel.peopleSelector);
+  const people = useSelector(globalSel.peopleSelector);
 
-  return results && results.length ? (
+  return people && people.results && people.results.length ? (
     <Box display='flex' alignItems='center' flexDirection='column'>
       <Grid container spacing={3} mb={3}>
-        {results.map(person => {
+        {people.results.map(person => {
           return <Card data={person} type='people' key={person.name} />;
         })}
       </Grid>
-      <Pagination count={count} />
+      <Pagination count={people.count} />
     </Box>
   ) : (
     <Box height={1} width={1} display='flex' alignItems='center' justifyContent='center'>

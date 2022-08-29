@@ -16,16 +16,14 @@ const Person = () => {
   const {
     palette: { text, black },
   } = useTheme();
-  const { name, height, mass, hair_color, skin_color, eye_color, birth_year, gender } = useSelector(
-    globalSel.personSelector,
-  );
+  const person = useSelector(globalSel.personSelector);
   const handleClick = () => navigate(`/people`);
 
   useEffect(() => {
     dispatch(globalOp.getPerson(personId));
   }, [dispatch]);
 
-  return name ? (
+  return person ? (
     <Box
       p={5}
       backgroundColor={hexToRgba(text[400], 0.5)}
@@ -42,56 +40,56 @@ const Person = () => {
         Name
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {name}
+        {person.name}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Gender
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {gender}
+        {person.gender}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Birth year
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {birth_year}
+        {person.birth_year}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Height
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {height}
+        {person.height}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Mass
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {mass}
+        {person.mass}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Hair color
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {hair_color}
+        {person.hair_color}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Eye color
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {eye_color}
+        {person.eye_color}
       </Typography>
       <Divider />
       <Typography variant='h5' color={text[400]}>
         Skin color
       </Typography>
       <Typography variant='h4' color={black[500]}>
-        {skin_color}
+        {person.skin_color}
       </Typography>
       <Divider />
     </Box>

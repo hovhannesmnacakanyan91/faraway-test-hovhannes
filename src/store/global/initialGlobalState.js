@@ -1,4 +1,4 @@
 export const initialGlobalState = {
-  people: {},
-  person: {},
+  people: null,
+  person: null,
 };

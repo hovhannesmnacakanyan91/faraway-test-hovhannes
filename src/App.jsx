@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 
+import { BrowserRouter } from 'react-router-dom';
+
 import { useDispatch } from 'react-redux';
 import { globalOp } from './store/global';
 
 import { ThemeProvider } from '@mui/material';
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import Layout from './layout';
 import Main from './layout/Main';
 
 import theme from './theme';
 import './globalStyles.css';
-import { BrowserRouter } from 'react-router-dom';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,9 +22,9 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
-        <Main />
-        <Footer />
+        <Layout>
+          <Main />
+        </Layout>
       </BrowserRouter>
     </ThemeProvider>
   );
