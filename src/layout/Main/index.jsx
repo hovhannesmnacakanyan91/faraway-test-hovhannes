@@ -3,11 +3,13 @@ import React from 'react';
 import { Box } from '@mui/material';
 import Router from '../../Router';
 
+const HEADER_AND_FOOTER_HEIGHT = 120;
+
 const Main = () => {
   return (
     <Box
       component='main'
-      minHeight='calc(100vh - 120px)'
+      minHeight={`calc(100vh - ${HEADER_AND_FOOTER_HEIGHT}0px)`}
       p={5}
       sx={{
         background:
