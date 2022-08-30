@@ -1,7 +1,7 @@
 import { globalSlice } from './globalSlice';
 import { fetch } from '../../services';
 
-const getPeople = (url = `https://swapi.dev/api/people`) => {
+const getPeople = (url = `https://swapi.dev/api/people?page=1`) => {
   const { getPeople } = globalSlice.actions;
 
   return async dispatch => {
